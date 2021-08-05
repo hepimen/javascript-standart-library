@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <script>
+        {
+            // Object Freeze dan Seal
+            const person = {
+            firstName : "Eko",
+            lastName : "Kurniawan"
+            };
+
+            // Object.freeze(person); // Freeze : agar object tidak bisa di edit dan di hapus ataupun menambah property sekalipun
+            Object.seal(person); // Seal : object masih bisa diubah tapi tidak bisa di hapus ataupun menambah property sekalipun
+
+            person.firstName = "Budi";
+            delete person.lastName;
+
+            console.info(person);
+        }
+        {
+            // Object Assign
+            const target = {
+                firstName : "Eko"
+            };
+            const source = {
+                last : "Kurniawan"
+            }
+
+            console.info(target);
+            Object.assign(target,source);
+            console.info(target);
+            console.info(source);
+
+        }
+        {
+            // Object Property Name & Value - mengambil property dan value nya saja => result Array
+            const person = {
+                firstName : "Eko",
+                lastName : "Kurniawan"
+            };
+
+            console.info(Object.values(person));
+            console.info(Object.getOwnPropertyNames(person));
+        }
+        
+    </script>
+</body>
+</html>
