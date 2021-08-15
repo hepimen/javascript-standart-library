@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegExp</title>
+</head>
+<body>
+    <script>
+        {
+            // Create regex
+
+            const regex1 = /eko/;
+            const regex2 = new RegExp("Eko");
+            const regex3 = new RegExp(/eko/);
+
+
+        }
+
+        {
+            // test regex
+
+            const name = "eko kurniawan eko khenedy";
+            const regex = /eko/;
+            
+            const result = regex.exec(name);
+            console.info(result);
+            console.info(regex.exec("tidak ada")); //null krn tidak ada 
+
+            const test = regex.test(name);
+            console.info(test);
+            console.info(regex.test("tidak ada")); // false
+
+        }
+
+        {
+            // regex modifiear
+
+            const name = "eko kurniawan\nEko khenedy\nEdi Kurniawan";
+            const regex1 = /eko/ig
+            const regex2 = /kurniawan/ig
+            
+            let result;
+            while((result = regex1.exec(name)) !== null) {
+                console.info(result);
+            }
+
+            while((result = regex2.exec(name)) !== null) {
+                console.info(result);
+            }
+        }
+
+        {
+            // advance regex
+
+            const regex = /ek[aiueo]/ig;
+            const name = "eko eka eki eku eke edo eca ecu"
+
+            let result;
+            while((result = regex.exec(name)) !== null) {
+                console.info(result);
+                //eko eka eki eku eke , krn yg ada "ek + aiueo"
+            }
+        }
+
+        {
+            const name = "elaa eko eka eki eku eke edo eca ecu";
+
+            // mencari semua data yg sesuai dengan regex
+            console.info(name.match(/ek[aiueo]/ig)); // eko eka eki eku eke
+            // mencari di index berapa
+            console.info(name.search(/ek[aiueo]/ig));
+            // mereplace nama yg berkaitan ek + aiueo dengan "kamu", g mereplace global
+            console.info(name.replace(/ek[aiueo]/i, "kamu"));
+            // mereplace secara global dan wajib menambahkan g = global 
+            console.info(name.replaceAll(/ek[aiueo]/ig, "kamu"));
+            // menghapus huruf e semua 
+            console.info(name.split(/e/ig));
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflect</title>
+</head>
+<body>
+    <script>
+
+        // Reflect -> tanpa mengakses object langsung
+        const person = {};
+
+        Reflect.set(person, "firstName", "Eko");
+        Reflect.set(person, "lastName", "Kurniawan");
+
+        console.info(person);
+
+
+        console.info(Reflect.get(person, "firstName")); // Eko
+        console.info(Reflect.get(person, "lastName")); // Kurniawan
+
+        console.info(Reflect.has(person, "firstName")); // true
+        console.info(Reflect.has(person, "middleName")); // false
+        console.info(Reflect.has(person, "lastName")); // true
+
+    </script>
+</body>
+</html>
